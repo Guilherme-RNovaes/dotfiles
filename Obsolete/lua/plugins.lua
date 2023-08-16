@@ -10,6 +10,7 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'shaunsingh/nord.nvim'
   use 'hoob3rt/lualine' -- Statusline
+  use 'neovim/nvim-lspconfig' -- LSP
 end)
 
 
