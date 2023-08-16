@@ -29,6 +29,7 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   use 'akinsho/nvim-bufferline.lua'
+  use 'nordcalli/nvim-colorizer.lua'
 end)
 
 
