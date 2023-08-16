@@ -5,11 +5,11 @@ lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'nord',
-    section_separators = { left = '', right = '' }
+    section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     disabled_filetypes = {}
   },
-  sections {
+  sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = { {
