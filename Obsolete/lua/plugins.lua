@@ -9,6 +9,8 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'shaunsingh/nord.nvim'
+  use 'kyazdani42/nvim-web-devicons' -- File icons
+  use 'L3M0N4D3/LuaSnip' -- Snippet
   use 'hoob3rt/lualine.nvim' -- Statusline
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
