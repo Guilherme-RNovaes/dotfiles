@@ -13,12 +13,14 @@ keymap.set('n', 'x', '"_x')
 -- Select all
 -- keymap.set('n', '<C-a>', 'gg<S-v>G')
 
--- New tab
---keymap.set('n', 'te', ':tabedit')
+-- Manipulate tabs
+keymap.set('n', 'te', ':tabedit')
+keymap.set('n', 'ty', ':bn<CR>')
+keymap.set('n', 'tr', ':bt<CR>')
+keymap.set('n', 'td', ':bd<CR>')
 
 -- Move window
---keymap.set('n', '<Space>', '<C-w>w')
---keymap.set('', 'sh', '<C-w>h')
---keymap.set('', 'sk', '<C-w>k')
---keymap.set('', 'sj', '<C-w>j')
---keymap.set('', 'sl', '<C-w>l')
+keymap.set('', '<C-h>', '<C-w>h')
+keymap.set('', '<C-k>', '<C-w>k')
+keymap.set('', '<C-j>', '<C-w>j')
+keymap.set('', '<C-l>', '<C-w>l')
