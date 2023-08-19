@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local types = require("cmp.types")
 local str = require("cmp.utils.str")
+local lspkind = require("lspkind")
 
 local function formatForTailwindCSS(entry, vim_item)
   if vim_item.kind == 'Color' and entry.completion_item.documentation then
@@ -90,6 +91,9 @@ cmp.setup({
 		{ name = "cmp_git" },
 		{ name = "lspkind" },
 		{ name = "luasnip" },
+		{ name = "nvim-lspconfig" },
+		{ name = "nvim_lsp" },
+		{ name = "nvim-cmp" },
 		{ name = "nvim_lsp" },
 	},
 
