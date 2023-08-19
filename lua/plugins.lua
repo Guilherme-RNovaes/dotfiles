@@ -30,6 +30,7 @@ packer.startup(function(use)
       { 'neovim/nvim-lspconfig' },           -- Required
       { 'williamboman/mason.nvim' },         -- Optional
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { 'onsails/lspkind.nvim' }, -- LSP language icons
       { 'glepnir/lspsaga.nvim' }, -- LSP Ui's
 
       -- Autocompletion
