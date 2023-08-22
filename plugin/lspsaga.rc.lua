@@ -6,7 +6,7 @@ saga.setup({
     border = 'rounded',
   },
   symbol_in_winbar = {
-    enable = false
+    enable = true
   },
   lightbulb = {
     enable = false

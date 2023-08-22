@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local lsp_config = require('lspconfig')
 
 lsp.preset('recommended')
 lsp.ensure_installed ({
@@ -6,7 +7,7 @@ lsp.ensure_installed ({
   'eslint',
 })
 
-require'lspconfig'.lua_ls.setup {
+lsp_config.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {

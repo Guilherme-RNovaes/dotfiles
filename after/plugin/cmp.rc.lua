@@ -1,7 +1,6 @@
-local cmp = require("cmp")
-local types = require("cmp.types")
-local str = require("cmp.utils.str")
-local lspkind = require("lspkind")
+local status, cmp = pcall(require, "cmp")
+if (not status) then return end
+local lspkind = require 'lspkind'
 
 local function formatForTailwindCSS(entry, vim_item)
   if vim_item.kind == 'Color' and entry.completion_item.documentation then
@@ -21,10 +20,6 @@ local function formatForTailwindCSS(entry, vim_item)
   return vim_item
 end
 
-local t = function(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
 local luasnip = require("luasnip")
 
 -- Do not jump to snippet if i'm outside of it
@@ -34,17 +29,20 @@ luasnip.config.setup({
 	delete_check_events = "TextChanged",
 })
 
-local lspkind = require("lspkind")
-
 cmp.setup({
-	completion = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, scrollbar = "║" },  
+  completion = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, scrollbar = "║" },  
   window = {
     documentation = {
 		  border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		  scrollbar = "║",
 	  },
   },
-	formatting = {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  formatting = {
     format = lspkind.cmp_format({
       maxwidth = 50,
       before = function(entry, vim_item)
@@ -53,12 +51,6 @@ cmp.setup({
       end
     })
   },
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
-
   mapping = {
 		["<C-n>"] = cmp.mapping(
 			cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -85,8 +77,7 @@ cmp.setup({
 			"c",
 		}),
 	},
-
-	-- You should specify your *installed* sources.
+  -- You should specify your *installed* sources.
 	sources = {
 		{ name = "cmp_git" },
 		{ name = "lspkind" },
@@ -112,3 +103,4 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
