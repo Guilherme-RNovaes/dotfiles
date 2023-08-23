@@ -7,6 +7,8 @@ lsp.ensure_installed ({
   'eslint',
 })
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 lsp_config.lua_ls.setup {
   settings = {
     Lua = {

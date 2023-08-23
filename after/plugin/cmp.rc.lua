@@ -1,55 +1,60 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
-local lspkind = require 'lspkind'
-
-local function formatForTailwindCSS(entry, vim_item)
-  if vim_item.kind == 'Color' and entry.completion_item.documentation then
-    local _, _, r, g, b = string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
-    if r then
-      local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
-      local group = 'Tw_' .. color
-      if vim.fn.hlID(group) < 1 then
-        vim.api.nvim_set_hl(0, group, { fg = '#' .. color })
-      end
-      vim_item.kind = "●"
-      vim_item.kind_hl_group = group
-      return vim_item
-    end
-  end
-  vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
-  return vim_item
-end
-
 local luasnip = require("luasnip")
 
--- Do not jump to snippet if i'm outside of it
--- https://github.com/L3MON4D3/LuaSnip/issues/78
-luasnip.config.setup({
-	region_check_events = "CursorMoved",
-	delete_check_events = "TextChanged",
-})
+local kind_icons = {
+  Text = "󰉿",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+  Field = " ",
+	Variable = "󰀫",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "󰑭",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+  Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+  Reference = "",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+  Struct = "",
+	Event = "",
+	Operator = "󰆕",
+  TypeParameter = " ",
+	Misc = " ",
+}
 
 cmp.setup({
-  completion = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, scrollbar = "║" },  
   window = {
     documentation = {
 		  border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		  scrollbar = "║",
 	  },
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   formatting = {
-    format = lspkind.cmp_format({
-      maxwidth = 50,
-      before = function(entry, vim_item)
-        vim_item = formatForTailwindCSS(entry, vim_item)
-        return vim_item
-      end
-    })
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      --kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        Luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
   },
   mapping = {
 		["<C-n>"] = cmp.mapping(
@@ -79,18 +84,21 @@ cmp.setup({
 	},
   -- You should specify your *installed* sources.
 	sources = {
-		{ name = "cmp_git" },
-		{ name = "lspkind" },
+		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "nvim-lspconfig" },
-		{ name = "nvim_lsp" },
-		{ name = "nvim-cmp" },
-		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+		{ name = "path" },
 	},
 
 	experimental = {
 		ghost_text = false,
+    native_menu = false,
 	},
+
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
 })
 
 require("cmp").setup.cmdline(":", {
@@ -98,9 +106,3 @@ require("cmp").setup.cmdline(":", {
 		{ name = "cmdline", keyword_length = 2 },
 	},
 })
-
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]
-
