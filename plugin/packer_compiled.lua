@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  embark = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\embark",
+    url = "https://github.com/embark-theme/vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,

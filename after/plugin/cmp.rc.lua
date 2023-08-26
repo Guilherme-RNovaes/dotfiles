@@ -45,7 +45,6 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      --kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
@@ -106,3 +105,8 @@ require("cmp").setup.cmdline(":", {
 		{ name = "cmdline", keyword_length = 2 },
 	},
 })
+
+vim.cmd [[
+  set completeopt=menuone,noinsert,noselect
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]]
