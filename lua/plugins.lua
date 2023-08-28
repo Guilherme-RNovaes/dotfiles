@@ -10,6 +10,7 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Plugin manager
   use 'arcticicestudio/nord-vim' -- Theme Nord
   use { 'embark-theme/vim', as = 'embark' } -- Theme Embark
+  use "lukas-reineke/indent-blankline.nvim"
   use 'nvim-lualine/lualine.nvim' -- Lualine buffer navigation
   use 'ryanoasis/vim-devicons' -- Devicons
   use 'preservim/nerdtree' -- Tree for navigation
