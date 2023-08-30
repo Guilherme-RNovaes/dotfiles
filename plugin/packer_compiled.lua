@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
@@ -184,6 +189,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-nonicons"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-nonicons",
+    url = "https://github.com/yamatsum/nvim-nonicons"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
@@ -193,6 +203,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

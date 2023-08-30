@@ -1,59 +1,29 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
-local kind_icons = {
-  Text = "󰉿",
-	Method = "󰆧",
-	Function = "󰊕",
-	Constructor = "",
-  Field = " ",
-	Variable = "󰀫",
-	Class = "󰠱",
-	Interface = "",
-	Module = "",
-	Property = "󰜢",
-	Unit = "󰑭",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "󰌋",
-  Snippet = "",
-	Color = "󰏘",
-	File = "󰈙",
-  Reference = "",
-	Folder = "󰉋",
-	EnumMember = "",
-	Constant = "󰏿",
-  Struct = "",
-	Event = "",
-	Operator = "󰆕",
-  TypeParameter = " ",
-	Misc = " ",
-}
+require('luasnip.loaders.from_vscode').lazy_load()
 
-cmp.setup({
-  window = {
-    documentation = {
-		  border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	  },
-  },
-  snippet = {
+cmp.setup{
+  snpet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      vim_item.menu = ({
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      menu = ({
         nvim_lsp = "[LSP]",
         Luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-      })[entry.source.name]
-      return vim_item
-    end,
+      })
+    })
   },
   mapping = {
 		["<C-n>"] = cmp.mapping(
@@ -88,25 +58,18 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 	},
-
 	experimental = {
 		ghost_text = false,
     native_menu = false,
 	},
-
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-})
+}
 
 require("cmp").setup.cmdline(":", {
 	sources = {
 		{ name = "cmdline", keyword_length = 2 },
 	},
 })
-
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]

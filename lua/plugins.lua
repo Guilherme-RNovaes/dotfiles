@@ -13,8 +13,13 @@ packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use 'nvim-lualine/lualine.nvim' -- Lualine buffer navigation
   use 'ryanoasis/vim-devicons' -- Devicons
+  use 'nvim-tree/nvim-web-devicons' -- Devicons lua
   use 'preservim/nerdtree' -- Tree for navigation
   use 'tiagofumo/vim-nerdtree-syntax-highlight' -- Nerdtree syntax highlight
+  use {
+      'stevearc/oil.nvim', -- It's a tree for manipulating archives in the project
+      config = function() require('oil').setup() end
+    }
   use 'Xuyuanp/nerdtree-git-plugin' -- gitsigns plugin for nerdtree
   use 'nvim-lua/plenary.nvim' -- plugin for telescope
   use 'norcalli/nvim-colorizer.lua' -- Highlight in css color items
