@@ -10,6 +10,7 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Plugin manager
   use 'arcticicestudio/nord-vim' -- Theme Nord
   use { 'embark-theme/vim', as = 'embark' } -- Theme Embark
+  use { "catppuccin/nvim", as = "catppuccin" } -- Theme Catppuccin
   use "lukas-reineke/indent-blankline.nvim"
   use 'nvim-lualine/lualine.nvim' -- Lualine buffer navigation
   use 'ryanoasis/vim-devicons' -- Devicons
@@ -21,6 +22,7 @@ packer.startup(function(use)
       config = function() require('oil').setup() end
     }
   use 'Xuyuanp/nerdtree-git-plugin' -- gitsigns plugin for nerdtree
+  use 'fedepujol/move.nvim' -- Gain the power to move lines and blocks!
   use 'nvim-lua/plenary.nvim' -- plugin for telescope
   use 'norcalli/nvim-colorizer.lua' -- Highlight in css color items
   use 'nvim-telescope/telescope.nvim' -- File Finder
@@ -57,5 +59,7 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs' -- Auto pairs plugin
   use 'windwp/nvim-ts-autotag' -- Auto tag for typescript
 
+  -- Git Plugins
   use 'lewis6991/gitsigns.nvim' -- Git signs plugin
+  use 'dinhhuy258/git.nvim' -- For git blame and broser
 end)
