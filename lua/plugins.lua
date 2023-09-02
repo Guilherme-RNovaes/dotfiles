@@ -8,10 +8,12 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Plugin manager
+  use 'glepnir/dashboard-nvim'
   use 'arcticicestudio/nord-vim' -- Theme Nord
   use { 'embark-theme/vim', as = 'embark' } -- Theme Embark
   use { "catppuccin/nvim", as = "catppuccin" } -- Theme Catppuccin
   use "lukas-reineke/indent-blankline.nvim"
+  use 'numToStr/Comment.nvim' -- Plugin for comment lines
   use 'nvim-lualine/lualine.nvim' -- Lualine buffer navigation
   use 'ryanoasis/vim-devicons' -- Devicons
   use 'nvim-tree/nvim-web-devicons' -- Devicons lua
