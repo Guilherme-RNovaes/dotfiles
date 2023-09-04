@@ -38,29 +38,27 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   } -- Syntax Highlighth for languages
+  use 'williamboman/mason.nvim'         -- Optional
+  use 'williamboman/mason-lspconfig.nvim' -- Optional
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },           -- Required
-      { 'williamboman/mason.nvim' },         -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-      { 'onsails/lspkind.nvim' }, -- LSP language icons
-      { 'glepnir/lspsaga.nvim' }, -- LSP Ui's
+      'neovim/nvim-lspconfig',           -- Required
+      'onsails/lspkind.nvim', -- LSP language icons
+      'glepnir/lspsaga.nvim', -- LSP Ui's
 
       -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+		  'hrsh7th/nvim-cmp',
+		  'hrsh7th/cmp-buffer',
+		  'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+		  'saadparwaiz1/cmp_luasnip',
+		  'hrsh7th/cmp-nvim-lsp',
+		  'hrsh7th/cmp-nvim-lua',
+      'ray-x/lsp_signature.nvim',
 
 		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-    }
+		  'L3MON4D3/LuaSnip',
+		  'rafamadriz/friendly-snippets',
   } -- LSP
 
   use 'windwp/nvim-autopairs' -- Auto pairs plugin

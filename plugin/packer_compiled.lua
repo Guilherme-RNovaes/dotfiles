@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
@@ -113,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
   },
   embark = {
     loaded = true,
@@ -139,10 +149,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["lsp-zero.nvim"] = {
+  ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "C:\\Users\\guilh\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
