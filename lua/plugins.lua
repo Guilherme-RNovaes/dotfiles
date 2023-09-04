@@ -7,16 +7,21 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
+  -- Plugin Manager
   use 'wbthomason/packer.nvim' -- Plugin manager
+
+  -- Appearence
   use 'glepnir/dashboard-nvim'
   use 'arcticicestudio/nord-vim' -- Theme Nord
   use { 'embark-theme/vim', as = 'embark' } -- Theme Embark
   use { "catppuccin/nvim", as = "catppuccin" } -- Theme Catppuccin
+  use 'ryanoasis/vim-devicons' -- Devicons
+  use 'nvim-tree/nvim-web-devicons' -- Devicons lua
+
+  -- Utils
   use "lukas-reineke/indent-blankline.nvim"
   use 'numToStr/Comment.nvim' -- Plugin for comment lines
   use 'nvim-lualine/lualine.nvim' -- Lualine buffer navigation
-  use 'ryanoasis/vim-devicons' -- Devicons
-  use 'nvim-tree/nvim-web-devicons' -- Devicons lua
   use 'preservim/nerdtree' -- Tree for navigation
   use 'tiagofumo/vim-nerdtree-syntax-highlight' -- Nerdtree syntax highlight
   use {
