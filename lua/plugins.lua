@@ -38,15 +38,19 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   } -- Syntax Highlighth for languages
-  use 'williamboman/mason.nvim'         -- Optional
-  use 'williamboman/mason-lspconfig.nvim' -- Optional
+  use 'windwp/nvim-autopairs' -- Auto pairs plugin
+  use 'windwp/nvim-ts-autotag' -- Auto tag for typescript
+
+  -- LSP and Autocompletion
+  use 'williamboman/mason.nvim'         -- Language server automation
+  use 'williamboman/mason-lspconfig.nvim' -- Language server automation
   use {
       -- LSP Support
-      'neovim/nvim-lspconfig',           -- Required
+      'neovim/nvim-lspconfig', -- Enables LSP configuration
       'onsails/lspkind.nvim', -- LSP language icons
       'glepnir/lspsaga.nvim', -- LSP Ui's
 
-      -- Autocompletion
+      -- CMP Autocompletion
 		  'hrsh7th/nvim-cmp',
 		  'hrsh7th/cmp-buffer',
 		  'hrsh7th/cmp-path',
@@ -59,10 +63,7 @@ packer.startup(function(use)
 		  -- Snippets
 		  'L3MON4D3/LuaSnip',
 		  'rafamadriz/friendly-snippets',
-  } -- LSP
-
-  use 'windwp/nvim-autopairs' -- Auto pairs plugin
-  use 'windwp/nvim-ts-autotag' -- Auto tag for typescript
+  }
 
   -- Git Plugins
   use 'lewis6991/gitsigns.nvim' -- Git signs plugin

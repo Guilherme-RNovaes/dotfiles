@@ -2,7 +2,7 @@ local status, db = pcall(require, 'dashboard')
 if (not status) then return end
 
 vim.cmd[[
-  let g:indent_blankline_filetype_exclude = ['dashboard']
+  let g:indent_blankline_filetype_exclude = ['dashboard', 'oil']
 ]]
 
 local function key(shortcut)
