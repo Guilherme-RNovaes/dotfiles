@@ -27,6 +27,8 @@ vim.o.completeopt = 'menuone,noselect'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local caps = vim.lsp.protocol.make_client_capabilities()
+caps.textDocument.completion.completionItem.snippetSupport = true
 
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
@@ -160,6 +162,15 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
+  -- format on save
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format()
+    end
+  })
 end
 
 lsp_config.tsserver.setup {
@@ -190,6 +201,18 @@ lsp_config.lua_ls.setup {
   },
 }
 
+lsp_config.emmet_ls.setup({
+  capabilities = caps,
+  filetypes = {
+    "css",
+    "html",
+    "javascriptreact",
+    "less",
+    "sass",
+    "scss",
+    "typescriptreact",
+  },
+})
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
